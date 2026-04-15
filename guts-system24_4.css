@@ -1,0 +1,170 @@
+/**
+ * @name system24-guts
+ * @description a tui-style berserk guts theme
+ * @version 1.0.0
+*/
+
+/* import base theme */
+@import url('https://refact0r.github.io/system24/build/system24.css');
+
+body {
+    /* Guts image — same variable pattern as systemcinnamoroll */
+    --character-image: url('https://files.catbox.moe/j6y145.jpg');
+
+    /* font */
+    --font: 'DM Mono';
+    --code-font: 'DM Mono';
+    font-weight: 300;
+    letter-spacing: -0.05ch;
+
+    /* sizes */
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 2px;
+    --border-hover-transition: 0.2s ease;
+
+    /* animations */
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+
+    /* top bar */
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+
+    /* window controls */
+    --custom-window-controls: off;
+    --window-control-size: 14px;
+
+    /* dms */
+    --custom-dms-icon: off;
+    --dms-icon-svg-url: url('');
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-subtle);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
+
+    /* background image — off, we handle it via chat overlay below */
+    --background-image: off;
+    --background-image-url: url('');
+
+    /* transparency */
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    /* other */
+    --small-user-panel: on;
+    --unrounding: on;
+    --custom-spotify-bar: on;
+    --ascii-titles: on;
+    --ascii-loader: system24;
+
+    /* panel labels */
+    --panel-labels: on;
+    --label-color: var(--text-muted);
+    --label-font-weight: 500;
+    --label-hover-color: var(--cherry-2);
+
+    /* chatbar */
+    --custom-chatbar: separated !important;
+    --chatbar-height: 56px !important;
+
+    /* chat overlay — dark tint over Guts image, tweak opacity to taste */
+    --chat-main-overlay: rgb(15 15 15 / 0.82); /* lower = more visible image */
+    --chat-main-image: var(--character-image);
+}
+
+/* ── APPLY IMAGE TO CHAT AREA (same as systemcinnamoroll) ── */
+.visual-refresh {
+    .messagesWrapper__36d07 {
+        background:
+            linear-gradient(var(--chat-main-overlay), var(--chat-main-overlay)),
+            var(--chat-main-image) center / cover no-repeat !important;
+    }
+}
+
+/* ── CHERRY RED PALETTE ──────────────────────────────────── */
+:root {
+    --colors: on;
+
+    --cherry-1: oklch(78% 0.18 12);
+    --cherry-2: oklch(68% 0.19 13);
+    --cherry-3: oklch(58% 0.18 12);
+    --cherry-4: oklch(48% 0.17 11);
+    --cherry-5: oklch(38% 0.15 10);
+
+    --accent-1: var(--cherry-1);
+    --accent-2: var(--cherry-2);
+    --accent-3: var(--cherry-3);
+    --accent-4: var(--cherry-4);
+    --accent-5: var(--cherry-5);
+
+    --border-hover: var(--cherry-2);
+
+    --mention: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--cherry-2), transparent 88%) 40%,
+        transparent
+    );
+    --mention-hover: linear-gradient(
+        to right,
+        color-mix(in hsl, var(--cherry-2), transparent 93%) 40%,
+        transparent
+    );
+
+    /* keep system24 dark bg colors */
+    --text-1: oklch(95% 0 0);
+    --text-2: oklch(85% 0 0);
+    --text-3: oklch(75% 0 0);
+    --text-4: oklch(60% 0 0);
+    --text-5: oklch(40% 0 0);
+
+    --bg-1: oklch(31% 0 0);
+    --bg-2: oklch(27% 0 0);
+    --bg-3: oklch(23% 0 0);
+    --bg-4: oklch(19% 0 0);
+
+    --hover: oklch(54% 0 0 / 0.1);
+    --active: oklch(54% 0 0 / 0.2);
+    --active-2: oklch(54% 0 0 / 0.3);
+    --message-hover: var(--hover);
+
+    --border-light: var(--hover);
+    --border: var(--active);
+    --button-border: hsl(220, 0%, 100%, 0.1);
+}
+
+/* ── SCROLLBAR ───────────────────────────────────────────── */
+::-webkit-scrollbar-thumb {
+    background-color: var(--cherry-4) !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cherry-2) !important;
+}
+
+/* ── UNREAD & MENTION BADGES ────────────────────────────── */
+.visual-refresh [class*='numberBadge'],
+.visual-refresh [class*='unread'] {
+    background-color: var(--cherry-2) !important;
+}
+
+/* ── LINKS ──────────────────────────────────────────────── */
+a {
+    color: var(--cherry-1) !important;
+}
+a:hover {
+    color: var(--cherry-2) !important;
+}
+
+/* ── SPOTIFY BAR ─────────────────────────────────────────── */
+#vc-spotify-progress-bar .barFill_a562c8 {
+    background-color: var(--cherry-3) !important;
+}
